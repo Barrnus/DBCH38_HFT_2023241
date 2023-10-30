@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCH38_HFT_2023241.Logic", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCH38_HFT_2023241.Repository", "DBCH38_HFT_2023241.Repository\DBCH38_HFT_2023241.Repository.csproj", "{D50F0E6A-ECBF-45F0-944B-B84DED3C629A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCH38_HFT_2023241.Endpoint", "DBCH38_HFT_2023241.Endpoint\DBCH38_HFT_2023241.Endpoint.csproj", "{0365FEF0-6225-4F41-9416-4305D911FBEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D50F0E6A-ECBF-45F0-944B-B84DED3C629A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D50F0E6A-ECBF-45F0-944B-B84DED3C629A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D50F0E6A-ECBF-45F0-944B-B84DED3C629A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0365FEF0-6225-4F41-9416-4305D911FBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0365FEF0-6225-4F41-9416-4305D911FBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0365FEF0-6225-4F41-9416-4305D911FBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0365FEF0-6225-4F41-9416-4305D911FBEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
