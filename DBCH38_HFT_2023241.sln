@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCH38_HFT_2023241.Client", "DBCH38_HFT_2023241.Client\DBCH38_HFT_2023241.Client.csproj", "{23376869-EB9E-4D55-A1FA-6138410829EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBCH38_HFT_2023241.Models", "DBCH38_HFT_2023241.Models\DBCH38_HFT_2023241.Models.csproj", "{42934D00-5E3F-42CD-B7EB-394B68F3E27B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{23376869-EB9E-4D55-A1FA-6138410829EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23376869-EB9E-4D55-A1FA-6138410829EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23376869-EB9E-4D55-A1FA-6138410829EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42934D00-5E3F-42CD-B7EB-394B68F3E27B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42934D00-5E3F-42CD-B7EB-394B68F3E27B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42934D00-5E3F-42CD-B7EB-394B68F3E27B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42934D00-5E3F-42CD-B7EB-394B68F3E27B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
