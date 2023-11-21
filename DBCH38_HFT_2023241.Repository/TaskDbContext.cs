@@ -40,10 +40,10 @@ namespace DBCH38_HFT_2023241.Repository
             Priority pri3 = new Priority() { Id = 3, Value ="Low" };
 
             Worker worker1 = new Worker() {Id = 1, Age = 18, Name="A. László", Position = "Janitor",TaskId=1 };
-            Worker worker2 = new Worker() {Id = 1, Age = 23, Name="B. László", Position = "IT" ,TaskId=3};
-            Worker worker3 = new Worker() {Id = 1, Age = 38, Name="C. László", Position = "IT" ,TaskId = 3 };
-            Worker worker4 = new Worker() {Id = 1, Age = 24, Name="D. László", Position = "Accountant" ,TaskId = 2 };
-            Worker worker5 = new Worker() {Id = 1, Age = 55, Name="E. László", Position = "CEO",TaskId=4};
+            Worker worker2 = new Worker() {Id = 2, Age = 23, Name="B. László", Position = "IT" ,TaskId=3};
+            Worker worker3 = new Worker() {Id = 3, Age = 38, Name="C. László", Position = "IT" ,TaskId = 3 };
+            Worker worker4 = new Worker() {Id = 4, Age = 24, Name="D. László", Position = "Accountant" ,TaskId = 2 };
+            Worker worker5 = new Worker() {Id = 5, Age = 55, Name="E. László", Position = "CEO",TaskId=4};
 
             Task task1 = new Task() { Id=1, Description="Office Cleanup", Type = "Janitor", PriorityId=1};
             Task task2 = new Task() { Id=2, Description="Yearly Tax Declaration", Type = "Accountant", PriorityId=2};
