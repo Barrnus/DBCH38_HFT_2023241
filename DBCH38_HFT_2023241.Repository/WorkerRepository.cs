@@ -17,27 +17,31 @@ namespace DBCH38_HFT_2023241.Repository
         }
         public void Create(Worker item)
         {
-            throw new NotImplementedException();
+            ctx.Set<Worker>().Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            ctx.Set<Worker>().Remove(Read(id));
         }
 
         public Worker Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Set<Worker>().First(x => x.Id == id);
         }
 
         public IQueryable<Worker> ReadAll()
         {
-            throw new NotImplementedException();
+            return ctx.Set<Worker>();
         }
 
         public void Update(Worker item)
         {
-            throw new NotImplementedException();
+            Worker old = Read(item.Id);
+            foreach (var property in item.GetType().GetProperties())
+            {
+                property.SetValue(old, property.GetValue(item));
+            }
         }
     }
 }
