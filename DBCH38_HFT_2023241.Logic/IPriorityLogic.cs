@@ -10,7 +10,6 @@ namespace DBCH38_HFT_2023241.Logic
 {
     public interface IPriorityLogic
     {
-        void Repository(IPriorityRepository<Priority> priorityRepository);
         void Create(Priority priority);
         void Delete(int id);
         IEnumerable<Priority> ReadAll();

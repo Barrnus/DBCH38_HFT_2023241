@@ -10,7 +10,6 @@ namespace DBCH38_HFT_2023241.Logic
 {
     public interface IWorkerLogic
     {
-        void Repository(IWorkerRepository<Worker> workerRepository);
         void Create(Worker worker);
         void Delete(int id);
         IEnumerable<Worker> ReadAll();
