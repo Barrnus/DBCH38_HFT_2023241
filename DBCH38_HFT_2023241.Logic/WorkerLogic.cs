@@ -32,7 +32,7 @@ namespace DBCH38_HFT_2023241.Logic
             Worker task = repo.Read(id);
             if (task == null)
             {
-                throw new ArgumentException("task with given id does not exist");
+                throw new ArgumentException("worker with given id does not exist");
             }
             return task;
 
