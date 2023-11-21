@@ -1,5 +1,4 @@
 ﻿using DBCH38_HFT_2023241.Models;
-using DBCH38_HFT_2023241.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,27 +17,31 @@ namespace DBCH38_HFT_2023241.Repository
 
         public void Create(Priority item)
         {
-            throw new NotImplementedException();
+            ctx.Set<Priority>().Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            ctx.Set<Priority>().Remove(Read(id));
         }
 
         public Priority Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Set<Priority>().First(x => x.Id == id);
         }
 
         public IQueryable<Priority> ReadAll()
         {
-            throw new NotImplementedException();
+            return ctx.Set<Priority>();
         }
 
         public void Update(Priority item)
         {
-            throw new NotImplementedException();
+            Priority old = Read(item.Id);
+            foreach (var property in item.GetType().GetProperties())
+            {
+                property.SetValue(old, property.GetValue(item));
+            }
         }
     }
 }
