@@ -13,7 +13,7 @@ namespace DBCH38_HFT_2023241.Logic
         void Create(Worker worker);
         void Delete(int id);
         IEnumerable<Worker> ReadAll();
-        Models.Task Read(int id);
+        Worker Read(int id);
         void Update(Worker worker);
     }
 }
