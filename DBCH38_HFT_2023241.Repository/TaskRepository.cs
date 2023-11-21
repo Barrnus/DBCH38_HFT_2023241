@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBCH38_HFT_2023241.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DBCH38_HFT_2023241.Repository
 {
-    public class TaskRepository : ITaskRepository<Task>
+    public class TaskRepository : ITaskRepository<Models.Task>
     {
         protected TaskDbContext ctx;
 
@@ -14,29 +15,33 @@ namespace DBCH38_HFT_2023241.Repository
         {
             this.ctx = ctx ?? throw new ArgumentNullException("the context is null");
         }
-        public void Create(Task item)
+        public void Create(Models.Task item)
         {
-            throw new NotImplementedException();
+            ctx.Set<Models.Task>().Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            ctx.Set<Models.Task>().Remove(Read(id));
         }
 
-        public Task Read(int id)
+        public Models.Task Read(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Set<Models.Task>().First(x => x.Id == id);
         }
 
-        public IQueryable<Task> ReadAll()
+        public IQueryable<Models.Task> ReadAll()
         {
-            throw new NotImplementedException();
+            return ctx.Set<Models.Task>();
         }
 
-        public void Update(Task item)
+        public void Update(Models.Task item)
         {
-            throw new NotImplementedException();
+            Models.Task old = Read(item.Id);
+            foreach (var property in item.GetType().GetProperties())
+            {
+                property.SetValue(old, property.GetValue(item));
+            }
         }
     }
 }

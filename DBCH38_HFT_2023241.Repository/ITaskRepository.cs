@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DBCH38_HFT_2023241.Repository
 {
-    public interface ITaskRepository<T> where T : Task
+    public interface ITaskRepository<T> where T : Models.Task
     {
         IQueryable<T> ReadAll();
         T Read(int id);
