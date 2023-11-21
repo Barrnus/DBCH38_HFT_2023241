@@ -13,7 +13,7 @@ namespace DBCH38_HFT_2023241.Logic
         void Create(Priority priority);
         void Delete(int id);
         IEnumerable<Priority> ReadAll();
-        Models.Task Read(int id);
+        Priority Read(int id);
         void Update(Priority priority);
     }
 }
