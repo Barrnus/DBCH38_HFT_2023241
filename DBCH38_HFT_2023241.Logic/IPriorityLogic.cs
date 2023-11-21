@@ -1,4 +1,5 @@
 ﻿using DBCH38_HFT_2023241.Models;
+using DBCH38_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace DBCH38_HFT_2023241.Logic
 {
     public interface IPriorityLogic
     {
+        void Repository(IPriorityRepository<Priority> priorityRepository);
         void Create(Priority priority);
         void Delete(int id);
         IEnumerable<Priority> ReadAll();
