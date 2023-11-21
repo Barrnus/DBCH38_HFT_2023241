@@ -22,7 +22,7 @@ namespace DBCH38_HFT_2023241.Models
 
         [Range(16,60)]
         [Required]
-        public string Age { get; set; }
+        public int Age { get; set; }
 
         [JsonIgnore]
         [NotMapped]

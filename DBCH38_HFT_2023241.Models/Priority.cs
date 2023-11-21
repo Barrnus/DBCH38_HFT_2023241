@@ -11,6 +11,10 @@ namespace DBCH38_HFT_2023241.Models
 {
     public class Priority
     {
+        public Priority()
+        {
+            Tasks = new List<Task>();
+        }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

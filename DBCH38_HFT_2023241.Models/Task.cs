@@ -12,6 +12,11 @@ namespace DBCH38_HFT_2023241.Models
     public class Task
     {
 
+        public Task()
+        {
+            Workers = new List<Worker>();
+        }
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public virtual int Id { get; set; }
@@ -30,6 +35,9 @@ namespace DBCH38_HFT_2023241.Models
 
         [NotMapped]
         public virtual Priority Priority { get; set; }
+
+        [ForeignKey(nameof(Priority))]
+        public int PriorityId { get; set; }
 
     }
 }
