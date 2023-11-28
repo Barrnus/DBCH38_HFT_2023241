@@ -18,11 +18,14 @@ namespace DBCH38_HFT_2023241.Repository
         public void Create(Models.Task item)
         {
             ctx.Set<Models.Task>().Add(item);
+            ctx.SaveChanges();
         }
 
         public void Delete(int id)
         {
             ctx.Set<Models.Task>().Remove(Read(id));
+            ctx.SaveChanges();
+
         }
 
         public Models.Task Read(int id)
@@ -42,6 +45,8 @@ namespace DBCH38_HFT_2023241.Repository
             {
                 property.SetValue(old, property.GetValue(item));
             }
+            ctx.SaveChanges();
+
         }
     }
 }
