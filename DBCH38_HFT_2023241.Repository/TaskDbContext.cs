@@ -31,9 +31,8 @@ namespace DBCH38_HFT_2023241.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Task>().HasOne(p=>p.Priority).WithMany(t=>t.Tasks).HasForeignKey(k=>k.PriorityId).OnDelete(DeleteBehavior.ClientSetNull);
-            //modelBuilder.Entity<Task>().HasMany(w=>w.Workers).WithOne(t=>t.Task).OnDelete(DeleteBehavior.ClientSetNull);
-            modelBuilder.Entity<Worker>().HasOne(t=>t.Task).WithMany(w=>w.Workers).HasForeignKey(k=>k.TaskId).OnDelete(DeleteBehavior.ClientSetNull);
+            modelBuilder.Entity<Task>().HasOne(p=>p.Priority).WithMany(t=>t.Tasks).OnDelete(DeleteBehavior.ClientSetNull);
+            modelBuilder.Entity<Worker>().HasOne(t=>t.Task).WithMany(w=>w.Workers).OnDelete(DeleteBehavior.ClientSetNull);
 
             Priority pri1 = new Priority() { Id = 1, Value="Urgent" };
             Priority pri2 = new Priority() { Id = 2, Value ="Neutral" };
