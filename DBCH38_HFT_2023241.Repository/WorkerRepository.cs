@@ -31,7 +31,7 @@ namespace DBCH38_HFT_2023241.Repository
 
         public Worker Read(int id)
         {
-            return ctx.Set<Worker>().First(x => x.Id == id);
+            return ctx.Set<Worker>().FirstOrDefault(item => item.Id.Equals(id));
         }
 
         public IQueryable<Worker> ReadAll()

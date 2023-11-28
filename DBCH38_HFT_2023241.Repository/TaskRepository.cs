@@ -30,7 +30,7 @@ namespace DBCH38_HFT_2023241.Repository
 
         public Models.Task Read(int id)
         {
-            return ctx.Set<Models.Task>().First(x => x.Id == id);
+            return ctx.Set<Models.Task>().FirstOrDefault(item => item.Id.Equals(id));
         }
 
         public IQueryable<Models.Task> ReadAll()

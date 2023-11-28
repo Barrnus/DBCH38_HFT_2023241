@@ -31,7 +31,7 @@ namespace DBCH38_HFT_2023241.Repository
 
         public Priority Read(int id)
         {
-            return ctx.Set<Priority>().First(x => x.Id == id);
+            return ctx.Set<Priority>().FirstOrDefault(item => item.Id.Equals(id));
         }
 
         public IQueryable<Priority> ReadAll()
