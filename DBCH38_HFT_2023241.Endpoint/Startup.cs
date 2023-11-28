@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,6 @@ namespace DBCH38_HFT_2023241.Endpoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<TaskDbContext>();
-
             services.AddTransient<IPriorityRepository<Priority>, PriorityRepository>();
             services.AddTransient<ITaskRepository<Models.Task>, TaskRepository>();
             services.AddTransient<IWorkerRepository<Worker>, WorkerRepository>();
@@ -30,6 +30,10 @@ namespace DBCH38_HFT_2023241.Endpoint
             services.AddTransient<IWorkerLogic, WorkerLogic>();
 
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo() { Title="teszt", Version="v1"});
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,16 +42,15 @@ namespace DBCH38_HFT_2023241.Endpoint
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskApp.Endpoint"));
             }
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
