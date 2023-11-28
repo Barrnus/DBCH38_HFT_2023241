@@ -18,11 +18,15 @@ namespace DBCH38_HFT_2023241.Repository
         public void Create(Priority item)
         {
             ctx.Set<Priority>().Add(item);
+            ctx.SaveChanges();
+
         }
 
         public void Delete(int id)
         {
             ctx.Set<Priority>().Remove(Read(id));
+            ctx.SaveChanges();
+
         }
 
         public Priority Read(int id)
@@ -42,6 +46,9 @@ namespace DBCH38_HFT_2023241.Repository
             {
                 property.SetValue(old, property.GetValue(item));
             }
+
+            ctx.SaveChanges();
+
         }
     }
 }
