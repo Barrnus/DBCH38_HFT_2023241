@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBCH38_HFT_2023241.Endpoint
+namespace DBCH38_HFT_2023241.Client
 {
     public class RestService
     {
