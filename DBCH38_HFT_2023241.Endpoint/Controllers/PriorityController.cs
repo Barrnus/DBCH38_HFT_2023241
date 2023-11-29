@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace DBCH38_HFT_2023241.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PriorityController : ControllerBase
     {
