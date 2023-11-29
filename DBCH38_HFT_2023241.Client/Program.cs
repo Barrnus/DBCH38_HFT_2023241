@@ -1,5 +1,6 @@
 ﻿using DBCH38_HFT_2023241.Models;
 using System;
+using System.Collections.Generic;
 
 namespace DBCH38_HFT_2023241.Client
 {
@@ -39,10 +40,25 @@ namespace DBCH38_HFT_2023241.Client
             switch (entity)
             {
                 case "Task":
+                    List<Models.Task> tasks = rest.Get<Models.Task>("task");
+                    foreach (var item in tasks)
+                    {
+                        Console.WriteLine($"Leírás: {item.Description} || Típus: {item.Type}");
+                    }
                     break;
                 case "Priority":
+                    List<Priority> prio = rest.Get<Priority>("priority");
+                    foreach (var item in prio)
+                    {
+                        Console.WriteLine($"Érték: {item.Value}");
+                    }
                     break;
                 case "Worker":
+                    List<Worker> workers = rest.Get<Worker>("worker");
+                    foreach (var item in workers)
+                    {
+                        Console.WriteLine($"Név: {item.Name} || Pozíció: {item.Position} || Kor: {item.Age}");
+                    }
                     break;
             }
         }
