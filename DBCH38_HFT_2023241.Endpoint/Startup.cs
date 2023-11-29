@@ -21,7 +21,7 @@ namespace DBCH38_HFT_2023241.Endpoint
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<TaskDbContext>();
+            services.AddTransient<TaskDbContext>();
             services.AddTransient<IPriorityRepository<Priority>, PriorityRepository>();
             services.AddTransient<ITaskRepository<Models.Task>, TaskRepository>();
             services.AddTransient<IWorkerRepository<Worker>, WorkerRepository>();
