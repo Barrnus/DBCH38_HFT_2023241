@@ -43,7 +43,7 @@ namespace DBCH38_HFT_2023241.Client
                     List<Models.Task> tasks = rest.Get<Models.Task>("task");
                     foreach (var item in tasks)
                     {
-                        Console.WriteLine($"Leírás: {item.Description} || Típus: {item.Type}");
+                        Console.WriteLine($"Desc.: {item.Description} || Type: {item.Type}");
                     }
                     Console.ReadLine();
                     break;
@@ -51,7 +51,7 @@ namespace DBCH38_HFT_2023241.Client
                     List<Priority> prio = rest.Get<Priority>("priority");
                     foreach (var item in prio)
                     {
-                        Console.WriteLine($"Érték: {item.Value}");
+                        Console.WriteLine($"Value: {item.Value}");
                     }
                     Console.ReadLine();
                     break;
@@ -59,7 +59,7 @@ namespace DBCH38_HFT_2023241.Client
                     List<Worker> workers = rest.Get<Worker>("worker");
                     foreach (var item in workers)
                     {
-                        Console.WriteLine($"Név: {item.Name} || Pozíció: {item.Position} || Kor: {item.Age}");
+                        Console.WriteLine($"Name: {item.Name} || Pos.: {item.Position} || Age: {item.Age}");
                     }
                     Console.ReadLine();
                     break;
@@ -73,21 +73,21 @@ namespace DBCH38_HFT_2023241.Client
                 case "Task":
                     Console.Write("Enter Task ID: ");
                     Models.Task task = rest.Get<Models.Task>(int.Parse(Console.ReadLine()), "task");
-                    Console.WriteLine($"Leírás: {task.Description} || Típus: {task.Type}");
+                    Console.WriteLine($"Desc.: {task.Description} || Type: {task.Type}");
 
                     Console.ReadLine();
                     break;
                 case "Priority":
                     Console.Write("Enter Priority ID: ");
-                    Priority prio = rest.Get<Priority>(int.Parse(Console.ReadLine()), "task");
-                    Console.WriteLine($"Érték: {prio.Value}");
+                    Priority prio = rest.Get<Priority>(int.Parse(Console.ReadLine()), "priority");
+                    Console.WriteLine($"Value: {prio.Value}");
 
                     Console.ReadLine();
                     break;
                 case "Worker":
                     Console.Write("Enter Worker ID: ");
                     Worker worker = rest.Get<Worker>(int.Parse(Console.ReadLine()), "worker");
-                    Console.WriteLine($"Név: {worker.Name} || Pozíció: {worker.Position} || Kor: {worker.Age}");
+                    Console.WriteLine($"Name: {worker.Name} || Pos.: {worker.Position} || Age: {worker.Age}");
 
                     Console.ReadLine();
                     break;
@@ -99,10 +99,43 @@ namespace DBCH38_HFT_2023241.Client
             switch (entity)
             {
                 case "Task":
+                    Console.Write("Enter Task ID: ");
+                    Models.Task task = rest.Get<Models.Task>(int.Parse(Console.ReadLine()), "task");
+                    Console.WriteLine($"Selected Task: (Desc.: {task.Description} || Type: {task.Type})");
+                    Console.WriteLine("Enter New Desc (Leave Empty If Unchanged): ");
+                    string newDesc = Console.ReadLine();
+                    task.Description = (newDesc == string.Empty) ? task.Description:newDesc;
+                    Console.WriteLine("Enter New Type (Leave Empty If Unchanged): ");
+                    string newType = Console.ReadLine();
+                    task.Type = (newType == string.Empty) ? task.Type : newType;
+
+                    rest.Put(task, "task");
                     break;
                 case "Priority":
+                    Console.Write("Enter Priority ID: ");
+                    Priority prio = rest.Get<Priority>(int.Parse(Console.ReadLine()), "priority");
+                    Console.WriteLine($"Selected Priority: (Value: {prio.Value})");
+                    Console.WriteLine("Enter New Value (Leave Empty If Unchanged): ");
+                    string newVal = Console.ReadLine();
+                    prio.Value= (newVal==string.Empty)?prio.Value:newVal;
+
+                    rest.Put(prio, "priority");
                     break;
                 case "Worker":
+                    Console.Write("Enter Worker ID: ");
+                    Worker worker = rest.Get<Worker>(int.Parse(Console.ReadLine()), "worker");
+                    Console.WriteLine($"Selected Worker: (Name: {worker.Name} || Pos.: {worker.Position} || Age: {worker.Age})");
+                    Console.WriteLine("Enter New Name (Leave Empty If Unchanged): ");
+                    string newName = Console.ReadLine();
+                    worker.Name = (newName == string.Empty)?worker.Name:newName;
+                    Console.WriteLine("Enter New Position (Leave Empty If Unchanged): ");
+                    string newPos = Console.ReadLine();
+                    worker.Position = (newPos == string.Empty) ? worker.Position : newName;
+                    Console.WriteLine("Enter New Age (Leave Empty If Unchanged): ");
+                    string newAge = Console.ReadLine();
+                    worker.Age = (newAge == string.Empty) ? worker.Age : int.Parse(newAge);
+
+                    rest.Put(worker, "worker");
                     break;
             }
         }
