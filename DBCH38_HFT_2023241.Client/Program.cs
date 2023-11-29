@@ -7,9 +7,8 @@ namespace DBCH38_HFT_2023241.Client
         {
             RestService rest = new RestService("http://localhost:1542/");
 
-
-            //TODO: ENDPOINT
             //TODO: 5 noncrud
+            //TODO: menu
         }
     }
 }
