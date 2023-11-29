@@ -12,7 +12,7 @@ namespace DBCH38_HFT_2023241.Client
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "api/task")
+        public RestService(string baseurl, string pingableEndpoint = "task")
         {
             bool isOk = false;
             do
