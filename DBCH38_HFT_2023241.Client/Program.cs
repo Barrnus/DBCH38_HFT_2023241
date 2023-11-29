@@ -1,4 +1,5 @@
-﻿using DBCH38_HFT_2023241.Models;
+﻿using ConsoleTools;
+using DBCH38_HFT_2023241.Models;
 using System;
 using System.Collections.Generic;
 
@@ -32,6 +33,10 @@ namespace DBCH38_HFT_2023241.Client
                     int age = int.Parse(Console.ReadLine());
                     rest.Post(new Worker() { Name=name, Age=age, Position=pos }, "worker");
                     break;
+
+                default:
+                    ConsoleMenu.Close();
+                    break;
             }
         }
 
@@ -63,6 +68,10 @@ namespace DBCH38_HFT_2023241.Client
                     }
                     Console.ReadLine();
                     break;
+
+                default:
+                    ConsoleMenu.Close();
+                    break;
             }
         }
 
@@ -90,6 +99,10 @@ namespace DBCH38_HFT_2023241.Client
                     Console.WriteLine($"\nName: {worker.Name} || Pos.: {worker.Position} || Age: {worker.Age}");
 
                     Console.ReadLine();
+                    break;
+
+                default:
+                    ConsoleMenu.Close();
                     break;
             }
         }
@@ -137,6 +150,10 @@ namespace DBCH38_HFT_2023241.Client
 
                     rest.Put(worker, "worker");
                     break;
+
+                default:
+                    ConsoleMenu.Close();
+                    break;
             }
         }
 
@@ -163,6 +180,10 @@ namespace DBCH38_HFT_2023241.Client
 
                     rest.Delete(id, "task");
                     break;
+
+                default:
+                    ConsoleMenu.Close();
+                    break;
             }
         }
 
@@ -170,8 +191,40 @@ namespace DBCH38_HFT_2023241.Client
         {
             rest = new RestService("http://localhost:1542/");
 
+            var taskSub = new ConsoleMenu(args, level: 1)
+                .Add("Create", ()=>Create("Task"))
+                .Add("Read", () => Read("Task"))
+                .Add("ReadAll", () => ReadAll("Task"))
+                .Add("Update", () => Update("Task"))
+                .Add("Delete", () => Delete("Task"))
+                .Add("Exit", () => Environment.Exit(0));
+
+            var prioSub = new ConsoleMenu(args, level: 1)
+                .Add("Create", () => Create("Priority"))
+                .Add("Read", () => Read("Priority"))
+                .Add("ReadAll", () => ReadAll("Priority"))
+                .Add("Update", () => Update("Priority"))
+                .Add("Delete", () => Delete("Priority"))
+                .Add("Exit", ()=> Environment.Exit(0));
+
+            var workerSub = new ConsoleMenu(args, level: 1)
+                .Add("Create", () => Create("Worker"))
+                .Add("Read", () => Read("Worker"))
+                .Add("ReadAll", () => ReadAll("Worker"))
+                .Add("Update", () => Update("Worker"))
+                .Add("Delete", () => Delete("Worker"))
+                .Add("Exit", () => Environment.Exit(0)) ;
+
+            var menu = new ConsoleMenu(args, level: 0)
+                .Add("Tasks", () => taskSub.Show())
+                .Add("Priorities", () => prioSub.Show())
+                .Add("Workers", () => workerSub.Show())
+                .Add("Exit", () => Environment.Exit(0));
+
+            menu.Show();
+
             //TODO: 5 noncrud
-            //TODO: menu
+            //TODO: logic exc handle
         }
     }
 }
