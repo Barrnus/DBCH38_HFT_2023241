@@ -3,6 +3,7 @@ using DBCH38_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -46,6 +47,17 @@ namespace DBCH38_HFT_2023241.Logic
         public void Update(Worker worker)
         {
             repo.Update(worker);
+        }
+
+        public IEnumerable<string> GetWorkersWithUrgentTask()
+        {
+            return repo.ReadAll().Where(x=>x.Task != null &&x.Task.Priority.Value=="Urgent").Select(x=>x.Name).ToList();
+                   
+        }
+
+        public IEnumerable<string> GetWorkersWithNoTask()
+        {
+            return repo.ReadAll().Where(x => x.Task == null).Select(x => x.Name).ToList();
         }
     }
 }

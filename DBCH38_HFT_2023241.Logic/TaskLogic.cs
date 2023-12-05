@@ -3,6 +3,7 @@ using DBCH38_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,5 +46,17 @@ namespace DBCH38_HFT_2023241.Logic
         {
             repo.Update(task);
         }
+
+        public IEnumerable<Models.Task> GetTaskWithManyWorkers()
+        {
+            return repo.ReadAll().Where(x =>x.Workers.Count()>3);
+        }
+
+        public IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent()
+        {
+            return repo.ReadAll().Where(x => x.Workers.Where(y=>y.Task.Priority.Value=="Urgent").Count() > 3);
+
+        }
+
     }
 }

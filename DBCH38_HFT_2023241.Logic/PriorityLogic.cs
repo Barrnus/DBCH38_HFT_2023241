@@ -3,6 +3,7 @@ using DBCH38_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +46,11 @@ namespace DBCH38_HFT_2023241.Logic
         public void Update(Priority priority)
         {
             repo.Update(priority);
+        }
+
+        public IEnumerable<Priority> GetPriorityWithMostTasks()
+        {
+            return repo.ReadAll().OrderByDescending(x=>x.Tasks.Count()).Take(1);
         }
     }
 }
