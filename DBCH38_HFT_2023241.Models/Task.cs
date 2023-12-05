@@ -36,5 +36,8 @@ namespace DBCH38_HFT_2023241.Models
         [NotMapped]
         public virtual Priority Priority { get; set; }
 
+        [ForeignKey(nameof(Priority))]
+        public int PriorityId { get; set; }
+
     }
 }
