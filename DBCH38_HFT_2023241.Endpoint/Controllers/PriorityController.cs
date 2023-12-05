@@ -45,5 +45,12 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
         {
             this.logic.Delete(id);
         }
+
+        [HttpGet]
+        [Route("getprioritywithmosttasks")]
+        public void GetPriorityWithMostTasks()
+        {
+            this.logic.GetPriorityWithMostTasks();
+        }
     }
 }

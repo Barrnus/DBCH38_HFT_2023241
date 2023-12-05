@@ -41,6 +41,8 @@ namespace DBCH38_HFT_2023241.Repository
             Worker worker1 = new Worker() {Id = 1, Age = 18, Name="A. László", Position = "Janitor",TaskId=1 };
             Worker worker2 = new Worker() {Id = 2, Age = 23, Name="B. László", Position = "IT" ,TaskId=3};
             Worker worker3 = new Worker() {Id = 3, Age = 38, Name="C. László", Position = "IT" ,TaskId = 3 };
+            Worker worker6 = new Worker() { Id = 6, Age = 23, Name = "X. László", Position = "IT", TaskId = 3 };
+            Worker worker7 = new Worker() { Id = 7, Age = 38, Name = "Y. László", Position = "IT", TaskId = 3 };
             Worker worker4 = new Worker() {Id = 4, Age = 24, Name="D. László", Position = "Accountant" ,TaskId = 2 };
             Worker worker5 = new Worker() {Id = 5, Age = 55, Name="E. László", Position = "CEO",TaskId=4};
 
@@ -50,7 +52,7 @@ namespace DBCH38_HFT_2023241.Repository
             Task task4 = new Task() { Id=4, Description="End Of Year Speech", Type = "CEO", PriorityId=2};
 
             modelBuilder.Entity<Priority>().HasData(pri1,pri2,pri3);
-            modelBuilder.Entity<Worker>().HasData(worker1, worker2, worker3,worker4);
+            modelBuilder.Entity<Worker>().HasData(worker1, worker2, worker3,worker4,worker5,worker6,worker7);
             modelBuilder.Entity<Task>().HasData(task1,task2,task3,task4);
 
             base.OnModelCreating(modelBuilder);

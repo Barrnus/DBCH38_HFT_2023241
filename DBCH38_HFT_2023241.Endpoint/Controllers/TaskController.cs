@@ -2,6 +2,7 @@
 using DBCH38_HFT_2023241.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using System.Collections.Generic;
 
 namespace DBCH38_HFT_2023241.Endpoint.Controllers
@@ -44,6 +45,20 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
         public void Delete(int id)
         {
             this.logic.Delete(id);
+        }
+
+        [HttpGet]
+        [Route("gettaskwithmanyworkers")]
+        public void GetTaskWithManyWorkers()
+        {
+            this.logic.GetTaskWithManyWorkers();
+        }
+
+        [HttpGet]
+        [Route("gettaskwithmanyworkersurgent")]
+        public void GetTaskWithManyWorkersUrgent()
+        {
+            this.logic.GetTaskWithManyWorkersUrgent();
         }
 
     }

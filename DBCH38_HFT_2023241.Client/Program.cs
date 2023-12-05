@@ -191,6 +191,9 @@ namespace DBCH38_HFT_2023241.Client
         {
             rest = new RestService("http://localhost:1542/");
 
+            //TODO: test + add more dbseed
+            
+
             var taskSub = new ConsoleMenu(args, level: 1)
                 .Add("Create", ()=>Create("Task"))
                 .Add("Read", () => Read("Task"))

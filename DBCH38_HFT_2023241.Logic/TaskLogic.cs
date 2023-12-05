@@ -1,4 +1,5 @@
-﻿using DBCH38_HFT_2023241.Models;
+﻿using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
+using DBCH38_HFT_2023241.Models;
 using DBCH38_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,8 @@ namespace DBCH38_HFT_2023241.Logic
 
         public IEnumerable<Models.Task> GetTaskWithManyWorkers()
         {
-            return repo.ReadAll().Where(x =>x.Workers.Count()>3);
+            var result =repo.ReadAll().Where(x =>x.Workers.Count()>3);
+            return result;
         }
 
         public IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent()

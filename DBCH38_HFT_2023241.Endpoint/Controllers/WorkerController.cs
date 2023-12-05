@@ -45,5 +45,20 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
         {
             this.logic.Delete(id);
         }
+
+        [HttpGet]
+        [Route("getworkerswithurgenttask")]
+        public void GetWorkersWithUrgentTask()
+        {
+            this.logic.GetWorkersWithUrgentTask();
+        }
+
+        [HttpGet]
+        [Route("getworkerswithnotask")]
+        public void GetWorkersWithNoTask()
+        {
+            this.logic.GetWorkersWithNoTask();
+
+        }
     }
 }
