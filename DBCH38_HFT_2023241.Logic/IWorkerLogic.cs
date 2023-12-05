@@ -15,5 +15,7 @@ namespace DBCH38_HFT_2023241.Logic
         IEnumerable<Worker> ReadAll();
         Worker Read(int id);
         void Update(Worker worker);
+        IEnumerable<string> GetWorkersWithUrgentTask();
+        IEnumerable<string> GetWorkersWithNoTask();
     }
 }

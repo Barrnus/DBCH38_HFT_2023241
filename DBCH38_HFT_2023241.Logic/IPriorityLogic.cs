@@ -15,5 +15,6 @@ namespace DBCH38_HFT_2023241.Logic
         IEnumerable<Priority> ReadAll();
         Priority Read(int id);
         void Update(Priority priority);
+        IEnumerable<Priority> GetPriorityWithMostTasks();
     }
 }

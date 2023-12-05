@@ -13,5 +13,7 @@ namespace DBCH38_HFT_2023241.Logic
         IEnumerable<Models.Task> ReadAll();
         Models.Task Read(int id);
         void Update(Models.Task task);
+        IEnumerable<Models.Task> GetTaskWithManyWorkers();
+        IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent();
     }
 }
