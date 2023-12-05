@@ -28,8 +28,5 @@ namespace DBCH38_HFT_2023241.Models
         [NotMapped]
         public virtual Task Task { get; set; }
 
-        [ForeignKey(nameof(Task))]
-        public int TaskId { get; set; }
-
     }
 }
