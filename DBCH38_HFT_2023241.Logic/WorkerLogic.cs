@@ -51,12 +51,12 @@ namespace DBCH38_HFT_2023241.Logic
 
         public IEnumerable<string> GetWorkersWithUrgentTask()
         {
-            return repo.GetWorkersWithUrgentTask();
+            return repo.ReadAll().Where(x => x.Task != null && x.Task.Priority.Value == "Urgent").Select(x => x.Name).ToList();
         }
 
         public IEnumerable<string> GetWorkersWithNoTask()
         {
-            return repo.GetWorkersWithNoTask();
+            return repo.ReadAll().Where(x => x.Task == null).Select(x => x.Name).ToList();
         }
     }
 }

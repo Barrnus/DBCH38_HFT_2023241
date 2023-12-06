@@ -28,17 +28,6 @@ namespace DBCH38_HFT_2023241.Repository
             ctx.SaveChanges();
 
         }
-
-        public IEnumerable<string> GetWorkersWithNoTask()
-        {
-            return ctx.Set<Worker>().Where(x => x.Task == null).Select(x => x.Name).ToList();
-        }
-
-        public IEnumerable<string> GetWorkersWithUrgentTask()
-        {
-            return ctx.Set<Worker>().Where(x => x.Task != null && x.Task.Priority.Value == "Urgent").Select(x => x.Name).ToList();
-        }
-
         public Worker Read(int id)
         {
             return ctx.Set<Worker>().FirstOrDefault(item => item.Id.Equals(id));
