@@ -48,9 +48,9 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
 
         [HttpGet]
         [Route("getprioritywithmosttasks")]
-        public void GetPriorityWithMostTasks()
+        public IEnumerable<Priority> GetPriorityWithMostTasks()
         {
-            this.logic.GetPriorityWithMostTasks();
+            return logic.GetPriorityWithMostTasks();
         }
     }
 }

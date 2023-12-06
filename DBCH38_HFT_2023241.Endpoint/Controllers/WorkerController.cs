@@ -48,16 +48,16 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
 
         [HttpGet]
         [Route("getworkerswithurgenttask")]
-        public void GetWorkersWithUrgentTask()
+        public IEnumerable<string> GetWorkersWithUrgentTask()
         {
-            this.logic.GetWorkersWithUrgentTask();
+            return logic.GetWorkersWithUrgentTask();
         }
 
         [HttpGet]
         [Route("getworkerswithnotask")]
-        public void GetWorkersWithNoTask()
+        public IEnumerable<string> GetWorkersWithNoTask()
         {
-            this.logic.GetWorkersWithNoTask();
+            return logic.GetWorkersWithNoTask();
 
         }
     }
