@@ -10,18 +10,18 @@ namespace DBCH38_HFT_2023241.Logic
 {
     public class MockLogic
     {
-        ITaskRepository<Models.Task> taskRepo;
-        IWorkerRepository<Worker> workerRepo;
-        IPriorityRepository<Priority> prioRepo;
+        TaskLogic taskLogic;
+        PriorityLogic priorityLogic;
+        WorkerLogic workerLogic;
         public MockLogic(ITaskRepository<Models.Task> taskRepo,IWorkerRepository<Worker> workerRepo,IPriorityRepository<Priority> prioRepo)
         {
-            TaskRepo = taskRepo;
-            WorkerRepo = workerRepo;
-            PrioRepo = prioRepo;
+            TaskLogic = new TaskLogic(taskRepo);
+            WorkerLogic = new WorkerLogic(workerRepo);
+            PriorityLogic = new PriorityLogic(prioRepo);
         }
 
-        public ITaskRepository<Models.Task> TaskRepo { get => taskRepo; private set => taskRepo = value; }
-        public IWorkerRepository<Worker> WorkerRepo { get => workerRepo; private set => workerRepo = value; }
-        public IPriorityRepository<Priority> PrioRepo { get => prioRepo; private set => prioRepo = value; }
+        public TaskLogic TaskLogic { get => taskLogic; private set => taskLogic = value; }
+        public PriorityLogic PriorityLogic { get => priorityLogic; private set => priorityLogic = value; }
+        public WorkerLogic WorkerLogic { get => workerLogic; private set => workerLogic = value; }
     }
 }

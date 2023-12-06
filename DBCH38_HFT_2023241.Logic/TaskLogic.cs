@@ -4,6 +4,7 @@ using DBCH38_HFT_2023241.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,10 +32,6 @@ namespace DBCH38_HFT_2023241.Logic
         public Models.Task Read(int id)
         {
             Models.Task task = repo.Read(id);
-            if (task == null)
-            {
-                throw new ArgumentException("task with given id does not exist");
-            }
             return task;
         }
 
@@ -50,13 +47,14 @@ namespace DBCH38_HFT_2023241.Logic
 
         public IEnumerable<Models.Task> GetTaskWithManyWorkers()
         {
-            return repo.ReadAll().Where(x => x.Workers.Count() > 3);
+            var result = repo.ReadAll().Where(x => x.Workers.Count() > 3);
+            return result;
 
         }
 
         public IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent()
         {
-            return repo.ReadAll().Where(x => x.Workers.Where(y => y.Task.Priority.Value == "Urgent").Count() > 3);
+            return repo.ReadAll().Where(x => x.Priority.Value=="Urgent" && x.Workers.Count>3);
 
         }
 

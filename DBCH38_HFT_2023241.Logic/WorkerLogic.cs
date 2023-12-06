@@ -30,12 +30,12 @@ namespace DBCH38_HFT_2023241.Logic
 
         public Worker Read(int id)
         {
-            Worker task = repo.Read(id);
-            if (task == null)
+            Worker worker = repo.Read(id);
+            if (worker == null)
             {
                 throw new ArgumentException("worker with given id does not exist");
             }
-            return task;
+            return worker;
 
         }
 
