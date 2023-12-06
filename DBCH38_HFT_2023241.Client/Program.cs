@@ -187,12 +187,68 @@ namespace DBCH38_HFT_2023241.Client
             }
         }
 
+        static void Noncruds (string entity) 
+        {
+            switch (entity)
+            {
+                case "GetPriorityWithMostTasks":
+                    var result = rest.Get<Priority>("priority/getprioritywithmosttasks");
+                    foreach (var item in result)
+                    {
+                        Console.WriteLine(item.Value);
+                    }
+                    Console.ReadLine();
+                    break;
+                case "GetTaskWithManyWorkers":
+                    var result2 = rest.Get<Models.Task>("task/gettaskwithmanyworkers");
+                    foreach (var item in result2)
+                    {
+                        Console.WriteLine(item.Description);
+                    }
+                    Console.ReadLine();
+
+                    break;
+                case "GetTaskWithManyWorkersUrgent":
+                    var result3 = rest.Get<Models.Task>("task/gettaskwithmanyworkersurgent");
+                    foreach (var item in result3)
+                    {
+                        Console.WriteLine(item.Description);
+                    }
+                    Console.ReadLine();
+
+                    break;
+                case "GetWorkersWithNoTask":
+                    var result4 = rest.Get<string>("worker/getworkerswithnotask");
+                    foreach (var item in result4)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    Console.ReadLine();
+
+                    break;
+                case "GetWorkersWithUrgentTask":
+                    var result5 = rest.Get<string>("worker/getworkerswithurgenttask");
+                    foreach (var item in result5)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    Console.ReadLine();
+
+                    break;
+                default:
+                    break;
+            }
+        }
         static void Main(string[] args)
         {
             rest = new RestService("http://localhost:1542/");
 
-            //TODO: test + add more dbseed
-            
+            var noncrudSub = new ConsoleMenu(args, level: 1)
+                .Add("GetPriorityWithMostTasks", ()=>Noncruds("GetPriorityWithMostTasks"))
+                .Add("GetTaskWithManyWorkers", ()=>Noncruds("GetTaskWithManyWorkers"))
+                .Add("GetTaskWithManyWorkersUrgent", ()=>Noncruds("GetTaskWithManyWorkersUrgent"))
+                .Add("GetWorkersWithNoTask", ()=>Noncruds("GetWorkersWithNoTask"))
+                .Add("GetWorkersWithUrgentTask", ()=>Noncruds("GetWorkersWithUrgentTask"));
 
             var taskSub = new ConsoleMenu(args, level: 1)
                 .Add("Create", ()=>Create("Task"))
@@ -222,12 +278,11 @@ namespace DBCH38_HFT_2023241.Client
                 .Add("Tasks", () => taskSub.Show())
                 .Add("Priorities", () => prioSub.Show())
                 .Add("Workers", () => workerSub.Show())
+                .Add("Noncruds", ()=>noncrudSub.Show())
                 .Add("Exit", () => Environment.Exit(0));
 
             menu.Show();
 
-            //TODO: 5 noncrud
-            //TODO: logic exc handle
         }
     }
 }
