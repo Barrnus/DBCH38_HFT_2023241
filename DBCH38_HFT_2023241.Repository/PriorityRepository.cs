@@ -29,6 +29,11 @@ namespace DBCH38_HFT_2023241.Repository
 
         }
 
+        public IEnumerable<Priority> GetPriorityWithMostTasks()
+        {
+            return ctx.Set<Priority>().OrderByDescending(x => x.Tasks.Count()).Take(1);
+        }
+
         public Priority Read(int id)
         {
             return ctx.Set<Priority>().FirstOrDefault(item => item.Id.Equals(id));

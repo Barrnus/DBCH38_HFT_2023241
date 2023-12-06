@@ -13,5 +13,7 @@ namespace DBCH38_HFT_2023241.Repository
         void Create(T item);
         void Update(T item);
         void Delete(int id);
+        public IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent();
+        public IEnumerable<Models.Task> GetTaskWithManyWorkers();
     }
 }

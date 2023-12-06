@@ -50,7 +50,7 @@ namespace DBCH38_HFT_2023241.Logic
 
         public IEnumerable<Priority> GetPriorityWithMostTasks()
         {
-            return repo.ReadAll().OrderByDescending(x=>x.Tasks.Count()).Take(1);
+            return repo.GetPriorityWithMostTasks();
         }
     }
 }

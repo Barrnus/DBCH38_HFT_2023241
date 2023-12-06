@@ -28,6 +28,16 @@ namespace DBCH38_HFT_2023241.Repository
 
         }
 
+        public IEnumerable<Models.Task> GetTaskWithManyWorkers()
+        {
+            return ctx.Set<Models.Task>().Where(x => x.Workers.Count() > 3);
+        }
+
+        public IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent()
+        {
+            return ctx.Set<Models.Task>().Where(x => x.Workers.Where(y => y.Task.Priority.Value == "Urgent").Count() > 3);
+        }
+
         public Models.Task Read(int id)
         {
             return ctx.Set<Models.Task>().FirstOrDefault(item => item.Id.Equals(id));
