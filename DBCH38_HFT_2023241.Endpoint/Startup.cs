@@ -46,7 +46,18 @@ namespace DBCH38_HFT_2023241.Endpoint
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaskApp.Endpoint"));
             }
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path=="/")
+                {
+                    context.Response.Redirect("/swagger");
+                }
+                else
+                {
+                    await next();
+                }
 
+            });
             app.UseExceptionHandler(c => c.Run(async context =>
             {
                 var exception = context.Features
