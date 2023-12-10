@@ -56,7 +56,7 @@ namespace DBCH38_HFT_2023241.Logic
 
         public IEnumerable<string> GetWorkersWithNoTask()
         {
-            return repo.ReadAll().Where(x => x.Task == null).Select(x => x.Name).ToList();
+            return repo.ReadAll().Where(x => x.TaskId == 0).Select(x => x.Name).ToList();
         }
     }
 }

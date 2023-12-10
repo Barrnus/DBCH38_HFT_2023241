@@ -47,14 +47,17 @@ namespace DBCH38_HFT_2023241.Logic
 
         public IEnumerable<Models.Task> GetTaskWithManyWorkers()
         {
-            var result = repo.ReadAll().Where(x => x.Workers.Count() > 3);
-            return result;
+            var what = repo.ReadAll();
+            var what2 = what.Where(x => x.Workers.Count > 3);
+            return what2;
 
         }
 
         public IEnumerable<Models.Task> GetTaskWithManyWorkersUrgent()
         {
-            return repo.ReadAll().Where(x => x.Priority.Value=="Urgent" && x.Workers.Count>3);
+            var what = repo.ReadAll().Where(x => x.Priority.Value == "Urgent");
+            var what2 = what.Where(x => x.Workers.Count > 3);
+            return what2;
 
         }
 

@@ -34,6 +34,7 @@ namespace DBCH38_HFT_2023241.Models
         public virtual ICollection<Worker> Workers { get; set; }
 
         [NotMapped]
+        [JsonIgnore]
         public virtual Priority Priority { get; set; }
 
         [ForeignKey(nameof(Priority))]
