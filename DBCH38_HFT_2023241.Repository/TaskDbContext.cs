@@ -41,10 +41,15 @@ namespace DBCH38_HFT_2023241.Repository
             Worker worker1 = new Worker() {Id = 1, Age = 18, Name="A. László", Position = "Janitor",TaskId=1 };
             Worker worker2 = new Worker() {Id = 2, Age = 23, Name="B. László", Position = "IT" ,TaskId=3};
             Worker worker3 = new Worker() {Id = 3, Age = 38, Name="C. László", Position = "IT" ,TaskId = 3 };
-            Worker worker6 = new Worker() { Id = 6, Age = 23, Name = "X. László", Position = "IT", TaskId = 3 };
-            Worker worker7 = new Worker() { Id = 7, Age = 38, Name = "Y. László", Position = "IT", TaskId = 3 };
             Worker worker4 = new Worker() {Id = 4, Age = 24, Name="D. László", Position = "Accountant" ,TaskId = 2 };
             Worker worker5 = new Worker() {Id = 5, Age = 55, Name="E. László", Position = "CEO",TaskId=4};
+            Worker worker6 = new Worker() { Id = 6, Age = 23, Name = "X. László", Position = "IT", TaskId = 3 };
+            Worker worker7 = new Worker() { Id = 7, Age = 38, Name = "Y. László", Position = "IT", TaskId = 3 };
+            Worker worker8 = new Worker() { Id = 8, Age = 18, Name = "F. László", Position = "Janitor", TaskId = 1 };
+            Worker worker9 = new Worker() { Id = 9, Age = 18, Name = "G. László", Position = "Janitor", TaskId = 1 };
+            Worker worker10 = new Worker() { Id = 10, Age = 18, Name = "H. László", Position = "Janitor", TaskId = 1 };
+            Worker worker11 = new Worker() { Id = 11, Age = 18, Name = "Lusta László", Position = "Lazy Janitor"};
+
 
             Task task1 = new Task() { Id=1, Description="Office Cleanup", Type = "Janitor", PriorityId=1};
             Task task2 = new Task() { Id=2, Description="Yearly Tax Declaration", Type = "Accountant", PriorityId=2};
@@ -52,7 +57,7 @@ namespace DBCH38_HFT_2023241.Repository
             Task task4 = new Task() { Id=4, Description="End Of Year Speech", Type = "CEO", PriorityId=2};
 
             modelBuilder.Entity<Priority>().HasData(pri1,pri2,pri3);
-            modelBuilder.Entity<Worker>().HasData(worker1, worker2, worker3,worker4,worker5,worker6,worker7);
+            modelBuilder.Entity<Worker>().HasData(worker1, worker2,worker3,worker4,worker5,worker6, worker7, worker8, worker9, worker10, worker11);
             modelBuilder.Entity<Task>().HasData(task1,task2,task3,task4);
 
             base.OnModelCreating(modelBuilder);
