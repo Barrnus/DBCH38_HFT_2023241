@@ -24,5 +24,23 @@ namespace DBCH38_SZTGUI_202320242.WpfClient
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PriorityWindow window = new PriorityWindow();
+            window.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            WorkerWindow worker = new WorkerWindow();
+            worker.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            TaskWindow task = new TaskWindow(); 
+            task.ShowDialog();
+        }
     }
 }

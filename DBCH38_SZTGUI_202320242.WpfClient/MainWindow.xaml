@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <Button Width="200" Padding="50" Content="Priority" Click="Button_Click"/>
+            <Button Width="200" Padding="50" Content="Worker" Click="Button_Click_1"/>
+            <Button Width="200" Padding="50" Content="Task" Click="Button_Click_2"/>
+        </StackPanel>
 
     </Grid>
 </Window>
