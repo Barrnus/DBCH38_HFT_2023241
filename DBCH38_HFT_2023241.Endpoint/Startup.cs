@@ -29,7 +29,7 @@ namespace DBCH38_HFT_2023241.Endpoint
             services.AddTransient<IPriorityLogic, PriorityLogic>();
             services.AddTransient<ITaskLogic, TaskLogic>();
             services.AddTransient<IWorkerLogic, WorkerLogic>();
-
+            services.AddSignalR();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
