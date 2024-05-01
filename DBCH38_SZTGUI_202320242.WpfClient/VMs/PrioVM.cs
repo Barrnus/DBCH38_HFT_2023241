@@ -39,7 +39,7 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
 
         public PrioVM()
         {
-            Prios = new RestCollection<Priority>("http://localhost:1542/", "priority");
+            Prios = new RestCollection<Priority>("http://localhost:1542/", "priority","hub");
             Create = new RelayCommand(() =>
             {
                 Prios.Add(new Priority()

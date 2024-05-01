@@ -11,6 +11,25 @@
         <vm:TaskVM/>
     </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Description}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Type"/>
+            <TextBox Text="{Binding SelectedTask.Type}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Description"/>
+            <TextBox Text="{Binding SelectedTask.Description}" Padding="10" Margin="0,0,0,10"/>
+            <Button Content="Create" Command="{Binding Create}" Margin="10" Padding="10"/>
+            <Button Content="Update" Command="{Binding Update}" Margin="10" Padding="10"/>
+            <Button Content="Delete" Command="{Binding Delete}" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>

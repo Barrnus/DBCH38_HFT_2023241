@@ -11,6 +11,27 @@
         <vm:WorkerVM/>
     </Window.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding Workers}" SelectedItem="{Binding SelectedWorker}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Name"/>
+            <TextBox Text="{Binding SelectedWorker.Name}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Age"/>
+            <TextBox Text="{Binding SelectedWorker.Age}" Padding="10" Margin="0,0,0,10"/>
+            <Label Content="Position"/>
+            <TextBox Text="{Binding SelectedWorker.Position}" Padding="10" Margin="0,0,0,10"/>
+            <Button Content="Create" Command="{Binding Create}" Margin="10" Padding="10"/>
+            <Button Content="Update" Command="{Binding Update}" Margin="10" Padding="10"/>
+            <Button Content="Delete" Command="{Binding Delete}" Margin="10" Padding="10"/>
+        </StackPanel>
     </Grid>
 </Window>

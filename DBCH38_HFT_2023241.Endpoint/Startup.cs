@@ -1,3 +1,4 @@
+using DBCH38_HFT_2023241.Endpoint.Services;
 using DBCH38_HFT_2023241.Logic;
 using DBCH38_HFT_2023241.Models;
 using DBCH38_HFT_2023241.Repository;
@@ -72,6 +73,7 @@ namespace DBCH38_HFT_2023241.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }
