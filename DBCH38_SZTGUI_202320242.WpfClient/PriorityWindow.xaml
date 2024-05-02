@@ -28,6 +28,7 @@
             <Button Content="Create" Command="{Binding Create}" Margin="10" Padding="10"/>
             <Button Content="Update" Command="{Binding Update}" Margin="10" Padding="10"/>
             <Button Content="Delete" Command="{Binding Delete}" Margin="10" Padding="10"/>
+            <Button Content="Most Task" Command="{Binding GetPriorityWithMostTasks}" Margin="10" Padding="10"/>
         </StackPanel>
     </Grid>
 </Window>

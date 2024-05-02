@@ -17,9 +17,12 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
 
         private Priority selectedPrio;
 
+        RestService noncruds;
+
         public ICommand Create {  get; set; }
         public ICommand Update {  get; set; }
         public ICommand Delete {  get; set; }
+        public ICommand GetPriorityWithMostTasks { get; set; }
         public Priority SelectedPrio { get => selectedPrio; set 
             {
 
@@ -39,6 +42,7 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
 
         public PrioVM()
         {
+            noncruds = new RestService("http://localhost:1542/","swagger");
             Prios = new RestCollection<Priority>("http://localhost:1542/", "priority","hub");
             Create = new RelayCommand(() =>
             {
@@ -55,8 +59,19 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
             Update = new RelayCommand(() =>
             {
                 Prios.Update(SelectedPrio);
+                
+            });
+            GetPriorityWithMostTasks = new RelayCommand(() =>
+            {
+                var value = noncruds.Get<Priority>("priority/getprioritywithmosttasks").ToList();
+                //NonCrudVM<Priority> nonCrudVM = new NonCrudVM<Priority>() { Message= "GetPriorityWithMostTasks",Values=value };
+                NonCrudWindow window = new NonCrudWindow("GetPriorityWithMostTasks",value);
+                window.ShowDialog();
+
+
             });
             SelectedPrio = new Priority();
+            
         }
     }
 }

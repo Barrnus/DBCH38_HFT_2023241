@@ -14,6 +14,7 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
     {
         public RestCollection<DBCH38_HFT_2023241.Models.Task> Tasks { get; set; }
         DBCH38_HFT_2023241.Models.Task selectedTask;
+        RestService noncrud;
         public DBCH38_HFT_2023241.Models.Task SelectedTask { get => selectedTask; 
             set 
             {
@@ -33,9 +34,12 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
         public ICommand Create { get; set; }
         public ICommand Update { get; set; }
         public ICommand Delete { get; set; }
+        public ICommand GetTaskWithManyWorkers { get; set; }
+        public ICommand GetTaskWithManyWorkersUrgent { get; set; }
 
         public TaskVM()
         {
+            noncrud = new RestService("http://localhost:1542/","swagger");
             Tasks = new RestCollection<DBCH38_HFT_2023241.Models.Task>("http://localhost:1542/", "task", "hub");
             Create = new RelayCommand(() =>
             {
@@ -53,6 +57,19 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
             Update = new RelayCommand(() =>
             {
                 Tasks.Update(SelectedTask);
+            });
+            GetTaskWithManyWorkers = new RelayCommand(() =>
+            {
+                var values = noncrud.Get<DBCH38_HFT_2023241.Models.Task>("task/gettaskwithmanyworkers").ToList();
+                NonCrudWindow window = new NonCrudWindow("GetTaskWithManyWorkers", values);
+                window.ShowDialog();
+            });
+            GetTaskWithManyWorkersUrgent = new RelayCommand(() =>
+            {
+                var values = noncrud.Get<DBCH38_HFT_2023241.Models.Task>("task/gettaskwithmanyworkersurgent").ToList();
+                NonCrudWindow window = new NonCrudWindow("GetTaskWithManyWorkers", values);
+                window.ShowDialog();
+
             });
             SelectedTask = new DBCH38_HFT_2023241.Models.Task();
         }

@@ -13,10 +13,13 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
     public class WorkerVM : ObservableRecipient
     {
         public RestCollection<Worker> Workers { get; set; }
-
+        RestService noncrud;
         public ICommand Create { get; set; }
         public ICommand Update { get; set; }
         public ICommand Delete { get; set; }
+        public ICommand GetWorkersWithNoTask { get; set; }
+        public ICommand GetWorkersWithUrgentTask { get; set; }
+
 
         Worker selectedWorker;
         public Worker SelectedWorker
@@ -43,6 +46,7 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
 
         public WorkerVM()
         {
+            noncrud = new RestService("http://localhost:1542/","swagger");
             Workers = new RestCollection<Worker>("http://localhost:1542/", "worker", "hub");
             Create = new RelayCommand(() =>
             {
@@ -61,6 +65,18 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
             Update = new RelayCommand(() =>
             {
                 Workers.Update(SelectedWorker);
+            });
+            GetWorkersWithNoTask = new RelayCommand(() =>
+            {
+                var value = noncrud.Get<string>("worker/getworkerswithnotask").ToList();
+                NonCrudWindow window = new NonCrudWindow("GetWorkersWithNoTask", value);
+                window.ShowDialog();
+            });
+            GetWorkersWithUrgentTask = new RelayCommand(() =>
+            {
+                var value = noncrud.Get<string>("worker/getworkerswithurgenttask").ToList();
+                NonCrudWindow window = new NonCrudWindow("GetWorkersWithUrgentTask", value);
+                window.ShowDialog();
             });
             SelectedWorker = new Worker();
         }

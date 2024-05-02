@@ -32,6 +32,8 @@
             <Button Content="Create" Command="{Binding Create}" Margin="10" Padding="10"/>
             <Button Content="Update" Command="{Binding Update}" Margin="10" Padding="10"/>
             <Button Content="Delete" Command="{Binding Delete}" Margin="10" Padding="10"/>
+            <Button Content="No Task" Command="{Binding GetWorkersWithNoTask}" Margin="10" Padding="10"/>
+            <Button Content="Urgent Task" Command="{Binding GetWorkersWithUrgentTask}" Margin="10" Padding="10"/>
         </StackPanel>
     </Grid>
 </Window>
