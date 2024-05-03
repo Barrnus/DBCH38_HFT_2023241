@@ -22,6 +22,7 @@ namespace DBCH38_SZTGUI_202320242.WpfClient.VMs
                 {
                     selectedTask = new DBCH38_HFT_2023241.Models.Task()
                     {
+                        Id= value.Id,
                         Description = value.Description,
                         Type = value.Type,
                     };
