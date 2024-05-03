@@ -131,7 +131,6 @@ function getPriorityWithMostTasks() {
     fetch('http://localhost:1542/priority/getprioritywithmosttasks')
         .then(x => x.json())
         .then(y => {
-            console.log(y);
             document.getElementById('noncrudDiv').innerHTML = '<table id="noncrudResult"></table>';
             y.forEach(x => {
                 document.getElementById('noncrudResult').innerHTML +=

@@ -134,10 +134,9 @@ function remove(id) {
 }
 
 function getTaskWithManyWorkers() {
-    fetch('http://localhost:1542/priority/gettaskwithmanyworkers')
+    fetch('http://localhost:1542/task/gettaskwithmanyworkers')
         .then(x => x.json())
         .then(y => {
-            console.log(y);
             document.getElementById('noncrudDiv').innerHTML = '<table id="noncrudResult"></table>';
             y.forEach(x => {
                 document.getElementById('noncrudResult').innerHTML +=
@@ -148,10 +147,9 @@ function getTaskWithManyWorkers() {
         })
 }
 function getTaskWithManyWorkersUrgent() {
-    fetch('http://localhost:1542/priority/gettaskwithmanyworkersurgent')
+    fetch('http://localhost:1542/task/gettaskwithmanyworkersurgent')
         .then(x => x.json())
         .then(y => {
-            console.log(y);
             document.getElementById('noncrudDiv').innerHTML = '<table id="noncrudResult"></table>';
             y.forEach(x => {
                 document.getElementById('noncrudResult').innerHTML +=
