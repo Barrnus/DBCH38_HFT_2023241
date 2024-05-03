@@ -4,4 +4,16 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\signalr.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\signalr.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\signalr.js" />
+  </ItemGroup>
+
 </Project>
