@@ -18,19 +18,21 @@ function initSignalR() {
         .configureLogging(signalR.LogLevel.Information)
         .build();
 
-    connection.on("PrioCreated", (user, message) => {
+    connection.on("PriorityCreated", (user, message) => {
         console.log(user);
         console.log(message);
         getData();
     });
-    connection.on("PrioDeleted", (user, message) => {
+    connection.on("PriorityDeleted", (user, message) => {
         console.log(user);
         console.log(message);
         getData();
     });
-    connection.on("PrioUpdated", (user, message) => {
+    connection.on("PriorityUpdated", (user, message) => {
         console.log(user);
         console.log(message);
+        getData();
+
     });
     connection.onclose(async () => {
         await start();

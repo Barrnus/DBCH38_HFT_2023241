@@ -36,14 +36,14 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
         public void Create([FromBody] Priority priority)
         {
             this.logic.Create(priority);
-            this.hub.Clients.All.SendAsync("PrioCreated",priority);
+            this.hub.Clients.All.SendAsync("PriorityCreated",priority);
         }
 
         [HttpPut]
         public void Put([FromBody] Priority priority)
         {
             this.logic.Update(priority);
-            this.hub.Clients.All.SendAsync("PrioUpdated", priority);
+            this.hub.Clients.All.SendAsync("PriorityUpdated", priority);
 
         }
 
@@ -52,7 +52,7 @@ namespace DBCH38_HFT_2023241.Endpoint.Controllers
         {
             var who = Read(id);
             this.logic.Delete(id);
-            this.hub.Clients.All.SendAsync("PrioDeleted", who);
+            this.hub.Clients.All.SendAsync("PriorityDeleted", who);
 
         }
 
